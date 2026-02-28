@@ -57,7 +57,8 @@
         targets: '.intro-social li',
         translateX: [-50, 0],
         opacity: [0, 1],
-        delay: anime.stagger(100, {direction: 'reverse'})
+        delay: anime.stagger(50, {direction: 'reverse'}),
+        duration: 400
     })
     .add({
         targets: '.intro-scrolldown',

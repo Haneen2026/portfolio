@@ -40,7 +40,7 @@
         opacity: [0, 1]
     }, '-=200')
     .add({
-        targets: [ '.s-intro .text-pretitle', '.s-intro .text-huge-title'],
+        targets: '.s-intro .text-huge-title',
         translateX: [100, 0],
         opacity: [0, 1],
         delay: anime.stagger(400)
@@ -171,43 +171,44 @@
     }; // end ssScrollSpy
 
 
-   /* Animate elements if in viewport
+   /* Animate elements if in viewport - DISABLED
     * ------------------------------------------------------ */
     const ssViewAnimate = function() {
-
-        const blocks = document.querySelectorAll("[data-animate-block]");
-
-        window.addEventListener("scroll", viewportAnimation);
-
-        function viewportAnimation() {
-
-            let scrollY = window.pageYOffset;
-
-            blocks.forEach(function(current) {
-
-                const viewportHeight = window.innerHeight;
-                const triggerTop = (current.offsetTop + (viewportHeight * .2)) - viewportHeight;
-                const blockHeight = current.offsetHeight;
-                const blockSpace = triggerTop + blockHeight;
-                const inView = scrollY > triggerTop && scrollY <= blockSpace;
-                const isAnimated = current.classList.contains("ss-animated");
-
-                if (inView && (!isAnimated)) {
-                    anime({
-                        targets: current.querySelectorAll("[data-animate-el]"),
-                        opacity: [0, 1],
-                        translateY: [100, 0],
-                        delay: anime.stagger(400, {start: 200}),
-                        duration: 800,
-                        easing: 'easeInOutCubic',
-                        begin: function(anim) {
-                            current.classList.add("ss-animated");
-                        }
-                    });
-                }
-            });
-        }
-
+        // Function disabled to prevent unwanted animations
+        return;
+        
+        // const blocks = document.querySelectorAll("[data-animate-block]");
+        
+        // window.addEventListener("scroll", viewportAnimation);
+        
+        // function viewportAnimation() {
+        //     
+        //     let scrollY = window.pageYOffset;
+        
+        //     blocks.forEach(function(current) {
+        
+        //         const viewportHeight = window.innerHeight;
+        //         const triggerTop = (current.offsetTop + (viewportHeight * .2)) - viewportHeight;
+        //         const blockHeight = current.offsetHeight;
+        //         const blockSpace = triggerTop + blockHeight;
+        //         const inView = scrollY > triggerTop && scrollY <= blockSpace;
+        //         const isAnimated = current.classList.contains("ss-animated");
+        
+        //         if (inView && (!isAnimated)) {
+        //             anime({
+        //                 targets: current.querySelectorAll("[data-animate-el]"),
+        //                 opacity: [0, 1],
+        //                 translateY: [100, 0],
+        //                 delay: anime.stagger(400, {start: 200}),
+        //                 duration: 800,
+        //                 easing: 'easeInOutCubic',
+        //                 begin: function(anim) {
+        //                     current.classList.add("ss-animated");
+        //                 }
+        //             });
+        //         }
+        //     });
+        // }
     }; // end ssViewAnimate
 
 
@@ -217,7 +218,7 @@
 
         const mySwiper = new Swiper('.swiper-container', {
 
-            slidesPerView: 1,
+            slidesPerView: 2,
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -225,18 +226,18 @@
             breakpoints: {
                 // when window width is > 400px
                 401: {
-                    slidesPerView: 1,
+                    slidesPerView: 2,
                     spaceBetween: 20
                 },
-                // when window width is > 800px
-                801: {
+                // when window width is > 600px
+                601: {
                     slidesPerView: 2,
-                    spaceBetween: 32
+                    spaceBetween: 16
                 },
                 // when window width is > 1200px
                 1201: {
                     slidesPerView: 2,
-                    spaceBetween: 80
+                    spaceBetween: 32
                 }
             }
          });

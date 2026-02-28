@@ -2751,13 +2751,13 @@ img.u-pull-left {
     --mailtoui-modal-head-bgcolor       : var(--color-gray-18);
     --mailtoui-modal-head-title-color   : white;
     --mailtoui-modal-body-bgcolor       : white;
-    --mailtoui-button-bgcolor           : rgba(255, 255, 255, 0.04);
-    --mailtoui-button-text-color        : white;
+    --mailtoui-button-bgcolor           : var(--color-gray-1);
+    --mailtoui-button-text-color        : var(--color-gray-9);
     --mailtoui-button-bgcolor-hover     : var(--color-1-dark);
     --mailtoui-button-text-color-hover  : black;
     --mailtoui-button-text-size         : 16px;
-    --mailtoui-email-address-bgcolor    : var(--color-gray-13);
-    --mailtoui-email-address-text-color : var(--text-color);
+    --mailtoui-email-address-bgcolor    : var(--color-gray-2);
+    --mailtoui-email-address-text-color : var(--color-gray-9);
     --border-radius                     : 0;
     font-family                         : var(--font-1);
     background-color                    : var(--color-body);
@@ -2824,6 +2824,7 @@ img.u-pull-left {
     color            : var(--mailtoui-button-text-color);
     border-radius    : var(--border-radius);
     box-shadow       : none;
+    border           : 1px solid var(--color-gray-3);
 }
 
 .mailtoui-button-content:hover,
@@ -2856,6 +2857,7 @@ img.u-pull-left {
     font-size        : 16px;
     line-height      : 1;
     border-radius    : var(--border-radius);
+    border           : 1px solid var(--color-gray-3);
 }
 
 .mailtoui-brand a {
@@ -4118,9 +4120,9 @@ img.u-pull-left {
 }
 
 .testimonial-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 20px;
     padding: var(--vspace-1_25);
     min-height: 260px;
@@ -4174,7 +4176,8 @@ img.u-pull-left {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.8;
+    opacity: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .quote-icon i {
@@ -4183,13 +4186,14 @@ img.u-pull-left {
 }
 
 .testimonial-content p {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     font-size: calc(var(--text-size) * 0.7895);
     line-height: 1.4;
     margin-left: 20px;
     margin-bottom: var(--vspace-0_5);
     font-style: italic;
     flex: 1;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .rating {
@@ -4203,6 +4207,7 @@ img.u-pull-left {
     color: #ffd700;
     font-size: 0.75rem;
     transition: all 0.2s ease;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
 .testimonial-card:hover .rating i {
@@ -4250,6 +4255,7 @@ font-weight: 600;
 line-height: var(--vspace-0_375);
 color: white;
 display: block;
+text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .testimonial-slider__cite span {
@@ -4257,8 +4263,8 @@ display: block;
 font-size: calc(var(--text-size) * 0.6316);
 font-weight: 300;
 line-height: var(--vspace-0_25);
-color: var(--color-white);
-opacity: 0.8;
+color: rgba(255, 255, 255, 0.9);
+text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* ===================================================================

@@ -4090,20 +4090,7 @@ img.u-pull-left {
     display: block;
 }
 
-.testimonial-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: var(--vspace-2);
-    height: 400px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-}
-
-/* Responsive testimonials - 2 per row on desktop, 1 per row on mobile */
+/* Responsive testimonials - 2 per row on desktop, 1 per row mobile */
 @media screen and (max-width: 600px) {
     .testimonials .swiper-wrapper {
         grid-template-columns: 1fr;
@@ -4130,27 +4117,19 @@ img.u-pull-left {
     transform: scale(1.2);
 }
 
-/* ------------------------------------------------------------------- 
-* ## testimonial slider 
-* ------------------------------------------------------------------- */
-.testimonial-slider__slide {
-    position: relative;
-    padding: 0;
-    width: 100%;
-    display: block;
-}
-
 .testimonial-card {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
-    padding: var(--vspace-2);
-    height: 400px;
+    padding: var(--vspace-1_25);
+    min-height: 260px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .testimonial-card::before {
@@ -4177,16 +4156,19 @@ img.u-pull-left {
 }
 
 .testimonial-content {
-    margin-bottom: var(--vspace-1_5);
+    margin-bottom: var(--vspace-0_75);
     position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .quote-icon {
     position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 40px;
-    height: 40px;
+    top: -6px;
+    left: -6px;
+    width: 28px;
+    height: 28px;
     background: linear-gradient(135deg, var(--color-1) 0%, var(--color-2) 100%);
     border-radius: 50%;
     display: flex;
@@ -4197,27 +4179,29 @@ img.u-pull-left {
 
 .quote-icon i {
     color: white;
-    font-size: 1.2rem;
+    font-size: 0.875rem;
 }
 
 .testimonial-content p {
     color: rgba(255, 255, 255, 0.9);
-    font-size: calc(var(--text-size) * 0.8947);
-    line-height: 1.6;
-    margin-left: 30px;
-    margin-bottom: var(--vspace-1);
+    font-size: calc(var(--text-size) * 0.7895);
+    line-height: 1.4;
+    margin-left: 20px;
+    margin-bottom: var(--vspace-0_5);
     font-style: italic;
+    flex: 1;
 }
 
 .rating {
-    margin-left: 30px;
+    margin-left: 20px;
     display: flex;
-    gap: 5px;
+    gap: 3px;
+    margin-top: auto;
 }
 
 .rating i {
     color: #ffd700;
-    font-size: 1rem;
+    font-size: 0.75rem;
     transition: all 0.2s ease;
 }
 
@@ -4235,45 +4219,46 @@ img.u-pull-left {
 }
 
 .testimonial-slider__slide:hover .testimonial-slider__cite span {
-    color : white;
+color : white;
 }
 
 .testimonial-slider__author {
-    display       : flex;
-    align-items    : center;
-    min-height    : var(--vspace-2);
-    margin-bottom : var(--vspace-0_5);
-    position      : relative;
+display: flex;
+align-items: center;
+min-height: var(--vspace-1_25);
+margin-bottom: 0;
+position: relative;
+margin-top: var(--vspace-0_25);
 }
 
 .testimonial-slider__avatar {
-    width         : var(--vspace-2);
-    height        : var(--vspace-2);
-    border-radius : 100%;
-    margin-right  : var(--vspace-1);
-    border        : 3px solid rgba(255, 255, 255, 0.1);
-    transition    : all 0.3s ease-in-out;
+width: var(--vspace-1_25);
+height: var(--vspace-1_25);
+border-radius: 100%;
+margin-right: var(--vspace-0_5);
+border: 2px solid rgba(255, 255, 255, 0.1);
+transition: all 0.3s ease-in-out;
 }
 
 .testimonial-slider__cite {
-    display : block;
+display : block;
 }
 
 .testimonial-slider__cite strong {
-    font-size   : calc(var(--text-size) * 0.8947);
-    font-weight : 600;
-    line-height : var(--vspace-0_75);
-    color       : white;
-    display     : block;
+font-size: calc(var(--text-size) * 0.7895);
+font-weight: 600;
+line-height: var(--vspace-0_375);
+color: white;
+display: block;
 }
 
 .testimonial-slider__cite span {
-    display     : block;
-    font-size   : calc(var(--text-size) * 0.7368);
-    font-weight : 300;
-    line-height : var(--vspace-0_5);
-    color       : var(--color-white);
-    opacity     : 0.8;
+display: block;
+font-size: calc(var(--text-size) * 0.6316);
+font-weight: 300;
+line-height: var(--vspace-0_25);
+color: var(--color-white);
+opacity: 0.8;
 }
 
 /* ===================================================================

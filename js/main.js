@@ -386,23 +386,64 @@
             moveTo.registerTrigger(trigger);
         });
 
-    }; // end ssMoveTo
+}; // end ssMoveTo
 
 
-   /* Initialize
-    * ------------------------------------------------------ */
-    (function ssInit() {
+/* Theme Toggle
+ * ------------------------------------------------------ */
+const ssThemeToggle = function() {
+        
+const themeToggleBtn = document.querySelector('.theme-toggle-btn');
+const themeIcon = document.querySelector('#theme-icon');
+const body = document.body;
+        
+if (!themeToggleBtn) return;
+        
+// Check for saved theme preference or default to dark mode
+const currentTheme = localStorage.getItem('theme') || 'dark';
+setTheme(currentTheme);
+        
+// Theme toggle event listener
+themeToggleBtn.addEventListener('click', function() {
+const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
+const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+setTheme(newTheme);
+localStorage.setItem('theme', newTheme);
+});
+        
+function setTheme(theme) {
+if (theme === 'light') {
+body.classList.add('light-mode');
+body.classList.remove('dark-mode');
+themeIcon.classList.remove('fa-moon');
+themeIcon.classList.add('fa-sun');
+} else {
+body.classList.add('dark-mode');
+body.classList.remove('light-mode');
+themeIcon.classList.remove('fa-sun');
+themeIcon.classList.add('fa-moon');
+}
+}
+        
+}; // end ssThemeToggle
 
-        ssPreloader();
-        ssMobileMenu();
-        ssScrollSpy();
-        ssAboutLineAnimation();
-        ssViewAnimate();
-        ssSwiper();
-        ssLightbox();
-        ssAlertBoxes();
-        ssMoveTo();
 
-    })();
+/* Initialize
+ * ------------------------------------------------------ */
+(function ssInit() {
+
+ssPreloader();
+ssMobileMenu();
+ssScrollSpy();
+ssAboutLineAnimation();
+ssViewAnimate();
+ssSwiper();
+ssLightbox();
+ssAlertBoxes();
+ssMoveTo();
+ssThemeToggle();
+
+})(); 
 
 })(document.documentElement);

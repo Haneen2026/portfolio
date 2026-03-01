@@ -171,6 +171,47 @@
     }; // end ssScrollSpy
 
 
+   /* About Section Line Animation
+    * ------------------------------------------------------ */
+    const ssAboutLineAnimation = function() {
+        const aboutSection = document.querySelector('#about');
+        const staticLine = document.querySelector('.static-line');
+        const aboutText = document.querySelector('.about-info__text');
+        
+        if (!aboutSection || !staticLine || !aboutText) return;
+        
+        let hasAnimated = false;
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasAnimated) {
+                    hasAnimated = true;
+                    
+                    // Trigger line animation
+                    staticLine.classList.add('animated');
+                    
+                    // Trigger shimmer effect once
+                    aboutText.style.setProperty('--shimmer-opacity', '1');
+                    aboutText.classList.add('shimmer-active');
+                    
+                    // Remove shimmer after animation completes
+                    setTimeout(() => {
+                        aboutText.classList.remove('shimmer-active');
+                    }, 3000);
+                    
+                    // Stop observing after animation
+                    observer.unobserve(aboutSection);
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
+        });
+        
+        observer.observe(aboutSection);
+    }; // end ssAboutLineAnimation
+
+
    /* Animate elements if in viewport - DISABLED
     * ------------------------------------------------------ */
     const ssViewAnimate = function() {
@@ -355,6 +396,7 @@
         ssPreloader();
         ssMobileMenu();
         ssScrollSpy();
+        ssAboutLineAnimation();
         ssViewAnimate();
         ssSwiper();
         ssLightbox();

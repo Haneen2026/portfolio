@@ -370,80 +370,83 @@
                 if (t < 1) return c/2*t*t*t + b;
                 t -= 2;
                 return c/2*(t*t*t + 2) + b;
+        }
+    }
+
+    const triggers = document.querySelectorAll('.smoothscroll');
+        
+    const moveTo = new MoveTo({
+        tolerance: 0,
+        duration: 1200,
+        easing: 'easeInOutCubic',
+        container: window
+    }, easeFunctions);
+
+    triggers.forEach(function(trigger) {
+        moveTo.registerTrigger(trigger);
+    });
+}; // end ssMoveTo
+
+
+/* Theme Toggle
+ * ------------------------------------------------------ */
+const ssThemeToggle = function() {
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+        
+    // Check for saved theme preference or default to dark mode
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+        
+    // Apply the saved theme on page load
+    if (currentTheme === 'light') {
+        htmlElement.classList.add('light-mode');
+        // In light mode, show dark mode icon (what it will switch to)
+        themeToggle.classList.remove('light-mode');
+    } else {
+        // In dark mode, show light mode icon (what it will switch to)
+        themeToggle.classList.add('light-mode');
+    }
+        
+    // Theme toggle click handler
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const isLightMode = htmlElement.classList.contains('light-mode');
+                
+            if (isLightMode) {
+                // Switch to dark mode
+                htmlElement.classList.remove('light-mode');
+                themeToggle.classList.add('light-mode'); // Show light icon (will switch to light)
+                localStorage.setItem('theme', 'dark');
+            } else {
+                // Switch to light mode
+                htmlElement.classList.add('light-mode');
+                themeToggle.classList.remove('light-mode'); // Show dark icon (will switch to dark)
+                localStorage.setItem('theme', 'light');
             }
-        }
-
-        const triggers = document.querySelectorAll('.smoothscroll');
-        
-        const moveTo = new MoveTo({
-            tolerance: 0,
-            duration: 1200,
-            easing: 'easeInOutCubic',
-            container: window
-        }, easeFunctions);
-
-        triggers.forEach(function(trigger) {
-            moveTo.registerTrigger(trigger);
+                
+            // Add a subtle animation effect
+            themeToggle.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                themeToggle.style.transform = 'scale(1)';
+            }, 150);
         });
-
-    }; // end ssMoveTo
-
-
-   /* Theme Toggle
-    * ------------------------------------------------------ */
-    const ssThemeToggle = function() {
-
-        const themeToggle = document.getElementById('theme-toggle');
-        const htmlElement = document.documentElement;
-        
-        // Check for saved theme preference or default to dark mode
-        const currentTheme = localStorage.getItem('theme') || 'dark';
-        
-        // Apply the saved theme on page load
-        if (currentTheme === 'light') {
-            htmlElement.classList.add('light-mode');
-            themeToggle.classList.add('light-mode');
-        }
-        
-        // Theme toggle click handler
-        if (themeToggle) {
-            themeToggle.addEventListener('click', function() {
-                const isLightMode = htmlElement.classList.contains('light-mode');
-                
-                if (isLightMode) {
-                    // Switch to dark mode
-                    htmlElement.classList.remove('light-mode');
-                    themeToggle.classList.remove('light-mode');
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    // Switch to light mode
-                    htmlElement.classList.add('light-mode');
-                    themeToggle.classList.add('light-mode');
-                    localStorage.setItem('theme', 'light');
-                }
-                
-                // Add a subtle animation effect
-                themeToggle.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    themeToggle.style.transform = 'scale(1)';
-                }, 150);
-            });
             
-            // Add keyboard support
-            themeToggle.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    themeToggle.click();
-                }
-            });
-        }
+        // Add keyboard support
+        themeToggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                themeToggle.click();
+            }
+        });
+    }
 
-    }; // end ssThemeToggle
+}; // end ssThemeToggle
 
 
-   /* Initialize
-    * ------------------------------------------------------ */
-    (function ssInit() {
+/* Initialize
+ * ------------------------------------------------------ */
+(function ssInit() {
 
         ssPreloader();
         ssMobileMenu();

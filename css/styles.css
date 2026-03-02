@@ -5606,22 +5606,26 @@ color : white;
     border-radius: 6px;
     background: rgba(255, 255, 255, 0.1);
     line-height: 1.2;
+    border: 1px solid rgba(248, 187, 217, 0.3);
 }
 
 .contact-card-link:hover {
     color: var(--color-1);
     background: rgba(255, 255, 255, 0.2);
     transform: translateY(-1px);
+    border-color: rgba(248, 187, 217, 0.6);
 }
 
 .contact-card-cta .contact-card-link {
     background: rgba(255, 255, 255, 0.25);
     color: var(--color-white);
+    border: 1px solid rgba(248, 187, 217, 0.4);
 }
 
 .contact-card-cta .contact-card-link:hover {
     background: rgba(255, 255, 255, 0.35);
     color: var(--color-white);
+    border-color: rgba(248, 187, 217, 0.8);
 }
 
 /* ------------------------------------------------------------------- 

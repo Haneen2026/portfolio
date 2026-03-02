@@ -92,7 +92,8 @@
  * ------------------------------------------------------------------- */
 :root {
 
-    /* color-1(#667eea - professional blue)
+    /* Original dark mode color palette
+     * color-1(#667eea - professional blue)
      * color-2(#764ba2 - sophisticated purple)
      */
     --color-1 : hsla(229, 70%, 65%, 1);
@@ -122,7 +123,7 @@
     --color-info-content    : hsla(205, 32%, 31%, 1);
     --color-notice-content  : hsla(51, 30%, 30%, 1);
 
-    /* shades 
+    /* Original dark mode shades 
      * generated using 
      * Tint & Shade Generator 
      * (https://maketintsandshades.com/)
@@ -182,6 +183,239 @@
     --color-body    : var(--color-gray-10);
     --color-border  : rgba(255, 255, 255, .05);
     --border-radius : 3px;
+}
+
+/* Light Mode Colors */
+:root.light-mode {
+    /* Light mode theme colors - light pink, beige, and creamy palette */
+    --color-body: #fdf8f3;
+    --color-text: #6d4c41;
+    --color-text-dark: #5d4037;
+    --color-text-light: #8d6e63;
+    
+    /* Light mode background gradients */
+    --color-bg-primary: #fef7f0;
+    --color-bg-secondary: #faf0e6;
+    --color-bg-tertiary: #f5ebe0;
+    
+    /* Light mode accent colors - light pink and beige */
+    --color-1: #f8bbd9;
+    --color-2: #d7ccc8;
+    --color-1-lighter: #fce4ec;
+    --color-1-light: #f8bbd9;
+    --color-1-dark: #f48fb1;
+    --color-1-darker: #f06292;
+    
+    /* Light mode card backgrounds */
+    --color-card-bg: #ffffff;
+    --color-card-border: #f8bbd9;
+    
+    /* Light mode shadows */
+    --color-shadow: rgba(248, 187, 217, 0.15);
+    
+    /* Light mode button colors - enhanced contrast */
+    --color-btn: #f5ebe0;
+    --color-btn-text: #ffffff;
+    --color-btn-hover: #e8d5c4;
+    --color-btn-hover-text: #3e2723;
+    --color-btn-primary: #f06292;
+    --color-btn-primary-text: #ffffff;
+    --color-btn-primary-hover: #e91e63;
+    --color-btn-primary-hover-text: #ffffff;
+    --color-btn-stroke: #5d4037;
+    --color-btn-stroke-text: #5d4037;
+    --color-btn-stroke-hover: #4e342e;
+    --color-btn-stroke-hover-text: #ffffff;
+}
+
+/* Light mode specific overrides for about-info button */
+:root.light-mode .about-info__text .btn {
+    background: #3e2723 !important;
+    color: #ffffff !important;
+    border: 1px solid #3e2723 !important;
+}
+
+:root.light-mode .about-info__text .btn:hover {
+    background: #2e1a17 !important;
+    color: #ffffff !important;
+    border: 1px solid #2e1a17 !important;
+}
+
+/* Light mode footer styling */
+:root.light-mode .s-footer {
+    background: #f5ebe0 !important;
+    border-top: 1px solid #e8d5c4 !important;
+}
+
+:root.light-mode .s-footer::before {
+    background: linear-gradient(90deg, #f06292 0%, #d7ccc8 100%) !important;
+    opacity: 0.5 !important;
+}
+
+:root.light-mode .s-footer a {
+    color: #5d4037 !important;
+}
+
+:root.light-mode .s-footer a:focus,
+:root.light-mode .s-footer a:hover {
+    color: #3e2723 !important;
+}
+
+:root.light-mode .ss-copyright span {
+    color: #5d4037 !important;
+}
+
+/* Light mode back to top arrow styling */
+:root.light-mode .ss-go-top a {
+    background-color: #f06292 !important;
+    border: 1px solid #f06292 !important;
+}
+
+:root.light-mode .ss-go-top a:focus,
+:root.light-mode .ss-go-top a:hover {
+    background-color: #e91e63 !important;
+    border-color: #e91e63 !important;
+}
+
+:root.light-mode .ss-go-top svg path {
+    fill: #ffffff !important;
+}
+
+:root.light-mode .ss-go-top a:focus svg path,
+:root.light-mode .ss-go-top a:hover svg path {
+    fill: #ffffff !important;
+}
+
+/* Light mode modal popup enhancements */
+:root.light-mode .modal-popup {
+    background: var(--color-card-bg) !important;
+    border: 1px solid var(--color-card-border) !important;
+    box-shadow: 0 10px 30px var(--color-shadow) !important;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+:root.light-mode .modal-popup img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    margin: 0 auto 1.5rem auto;
+    display: block;
+}
+
+:root.light-mode .modal-popup h5 {
+    color: var(--color-text-dark) !important;
+    font-size: calc(var(--text-lg) * 0.95);
+    margin-bottom: 0.8rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+:root.light-mode .modal-popup__desc {
+    color: var(--color-text) !important;
+    text-align: center;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    font-size: calc(var(--text-size) * 0.9);
+    line-height: 1.5;
+}
+
+:root.light-mode .modal-popup__cat {
+    color: var(--color-text-dark) !important;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+:root.light-mode .modal-popup__details {
+    background-color: var(--color-1) !important;
+    color: var(--color-white) !important;
+    padding: 0.6rem 1.5rem;
+    border-radius: 8px;
+    font-size: var(--text-xs);
+    margin: 0.8rem auto 0;
+    display: inline-block;
+    text-align: center;
+    min-width: 130px;
+}
+
+:root.light-mode .modal-popup__details:focus,
+:root.light-mode .modal-popup__details:hover {
+    background-color: var(--color-1-dark) !important;
+    color: var(--color-white) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark mode modal enhancements */
+.modal-popup {
+    background: var(--color-gray-9);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.modal-popup img {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    margin: 0 auto 1.8rem auto;
+    display: block;
+}
+
+.modal-popup h5 {
+    color: var(--color-white);
+    font-size: calc(var(--text-xl) * 0.9);
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.modal-popup__desc {
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    padding: 0 1.8rem 1.8rem 1.8rem;
+    font-size: calc(var(--text-size) * 0.9);
+    line-height: 1.5;
+}
+
+.modal-popup__cat {
+    color: var(--color-gray-4);
+    text-align: center;
+    margin-bottom: 1.8rem;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.modal-popup__details {
+    background-color: var(--color-1);
+    color: var(--color-white);
+    padding: 0.8rem 1.8rem;
+    border-radius: 10px;
+    font-size: var(--text-xs);
+    margin: 1rem auto 0;
+    display: inline-block;
+    text-align: center;
+    min-width: 140px;
+}
+
+.modal-popup__details:focus,
+.modal-popup__details:hover {
+    background-color: var(--color-1-dark);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* ------------------------------------------------------------------- 
@@ -2952,13 +3186,16 @@ img.u-pull-left {
 
 .s-pagewrap .circles span {
     display       : block;
-    border        : 1px solid var(--color-1);
+    border        : 2px solid transparent;
     border-radius : 50%;
-    opacity       : .3;
-    transform     : translate(-50%, -50%);
-    left          : 50%;
-    top           : 50%;
+    position      : absolute;
+    top           : 0;
+    left          : 0;
+    opacity       : 0;
     animation     : pulse 4s ease-in-out infinite;
+    background    : linear-gradient(45deg, var(--color-1), var(--color-2));
+    background-clip: padding-box;
+    border-image   : linear-gradient(45deg, var(--color-1), var(--color-2)) 1;
 }
 
 .s-pagewrap .circles span:nth-child(1) {
@@ -3121,6 +3358,318 @@ img.u-pull-left {
     color     : #ffffff !important;
     display   : block;
     line-height: 1;
+}
+
+/* Creative Theme Toggle Button */
+.theme-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.creative-theme-toggle {
+    position: relative;
+    width: 70px;
+    height: 36px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.toggle-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.toggle-sun,
+.toggle-moon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+}
+
+.toggle-sun {
+    left: 6px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+}
+
+.toggle-moon {
+    right: 6px;
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    box-shadow: 0 2px 8px rgba(45, 55, 72, 0.4);
+}
+
+.toggle-sun i,
+.toggle-moon i {
+    font-size: 10px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+/* Light mode state */
+.creative-theme-toggle.light-mode .toggle-slider {
+    transform: translateX(34px);
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    box-shadow: 0 4px 12px rgba(254, 243, 199, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.creative-theme-toggle.light-mode .toggle-track {
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.2) 0%, rgba(212, 165, 116, 0.1) 100%);
+    border-color: rgba(212, 165, 116, 0.3);
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.creative-theme-toggle.light-mode .toggle-sun {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.creative-theme-toggle.light-mode .toggle-moon {
+    opacity: 0.3;
+    transform: translateY(-50%) scale(0.8);
+}
+
+/* Dark mode state (default) */
+.creative-theme-toggle:not(.light-mode) .toggle-sun {
+    opacity: 0.3;
+    transform: translateY(-50%) scale(0.8);
+}
+
+.creative-theme-toggle:not(.light-mode) .toggle-moon {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Hover effects */
+.creative-theme-toggle:hover .toggle-track {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.creative-theme-toggle.light-mode:hover .toggle-track {
+    box-shadow: 0 6px 20px rgba(212, 165, 116, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.creative-theme-toggle:hover .toggle-slider {
+    transform: scale(1.1);
+}
+
+.creative-theme-toggle.light-mode:hover .toggle-slider {
+    transform: translateX(34px) scale(1.1);
+}
+
+/* Light mode styles for elements */
+:root.light-mode body {
+    background: var(--color-body);
+    color: var(--color-text);
+}
+
+:root.light-mode .s-header {
+    background: rgba(250, 250, 250, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-card-border);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+:root.light-mode .main-nav a {
+    color: var(--color-text-dark);
+}
+
+:root.light-mode .main-nav a:focus,
+:root.light-mode .main-nav a:hover {
+    color: var(--color-1);
+}
+
+:root.light-mode .header-social a {
+    background: linear-gradient(135deg, var(--color-1) 0%, var(--color-2) 100%);
+    border: 2px solid var(--color-card-border);
+    color: #ffffff !important;
+}
+
+:root.light-mode .header-social a:hover {
+    background: linear-gradient(135deg, var(--color-1-dark) 0%, var(--color-2-dark) 100%);
+    color: #ffffff !important;
+}
+
+:root.light-mode .testimonial-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    box-shadow: 0 4px 20px var(--color-shadow);
+}
+
+:root.light-mode .testimonial-card:hover {
+    background: var(--color-card-bg);
+    border-color: var(--color-1);
+    box-shadow: 0 8px 30px rgba(255, 107, 107, 0.2);
+}
+
+:root.light-mode .testimonial-content p {
+    color: var(--color-text);
+}
+
+:root.light-mode .testimonial-slider__cite strong {
+    color: var(--color-text-dark);
+}
+
+:root.light-mode .testimonial-slider__cite span {
+    color: var(--color-text-light);
+}
+
+:root.light-mode .testimonials {
+    background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+}
+
+:root.light-mode .quote-icon {
+    background: linear-gradient(135deg, var(--color-1) 0%, var(--color-2) 100%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+:root.light-mode .rating i {
+    color: #ffa500;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+:root.light-mode h1, 
+:root.light-mode h2, 
+:root.light-mode h3, 
+:root.light-mode h4, 
+:root.light-mode h5, 
+:root.light-mode h6,
+:root.light-mode .h1,
+:root.light-mode .h2,
+:root.light-mode .h3,
+:root.light-mode .h4,
+:root.light-mode .h5,
+:root.light-mode .h6 {
+    color: var(--color-text-dark);
+}
+
+:root.light-mode p {
+    color: var(--color-text);
+}
+
+:root.light-mode a {
+    color: var(--color-1);
+}
+
+:root.light-mode a:hover {
+    color: var(--color-1-dark);
+}
+
+/* Light mode styles for about section */
+:root.light-mode .s-about {
+    background: linear-gradient(to bottom, var(--color-bg-primary), var(--color-bg-secondary));
+}
+
+:root.light-mode .s-about::before,
+:root.light-mode .s-about::after {
+    background: linear-gradient(90deg, var(--color-1) 0%, var(--color-2) 100%);
+}
+
+/* Light mode styles for works section */
+:root.light-mode .s-works {
+    background: linear-gradient(135deg, var(--color-bg-primary) 0%, var(--color-bg-secondary) 100%);
+}
+
+:root.light-mode .s-works::before,
+:root.light-mode .s-works::after {
+    background: linear-gradient(90deg, var(--color-1) 0%, var(--color-2) 100%);
+}
+
+/* Light mode styles for contact section */
+:root.light-mode .contact-top {
+    background: linear-gradient(135deg, var(--color-1) 0%, var(--color-2) 100%);
+}
+
+:root.light-mode .contact-bottom {
+    background: transparent;
+}
+
+:root.light-mode .contact-top .h1 {
+    color: var(--color-white);
+}
+
+:root.light-mode .contact-card {
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    box-shadow: 0 4px 20px var(--color-shadow);
+}
+
+:root.light-mode .contact-card:hover {
+    background: var(--color-card-bg);
+    border-color: var(--color-1);
+    box-shadow: 0 8px 30px rgba(248, 187, 217, 0.3);
+}
+
+:root.light-mode .contact-card-cta {
+    background: linear-gradient(135deg, var(--color-1) 0%, var(--color-2) 100%);
+    border-color: var(--color-1);
+}
+
+:root.light-mode .contact-card-cta:hover {
+    background: linear-gradient(135deg, var(--color-1-dark) 0%, var(--color-2) 100%);
+    box-shadow: 0 8px 25px rgba(248, 187, 217, 0.4);
+}
+
+:root.light-mode .contact-card-icon {
+    color: var(--color-1);
+}
+
+:root.light-mode .contact-card-cta .contact-card-icon {
+    color: var(--color-white);
+}
+
+:root.light-mode .contact-card-label {
+    color: var(--color-text-dark);
+}
+
+:root.light-mode .contact-card-cta .contact-card-label {
+    color: var(--color-white);
+}
+
+:root.light-mode .contact-card-link {
+    color: var(--color-text);
+}
+
+:root.light-mode .contact-card-link:hover {
+    color: var(--color-1);
+}
+
+:root.light-mode .contact-card-cta .contact-card-link {
+    color: var(--color-white);
+}
+
+:root.light-mode .contact-card-cta .contact-card-link:hover {
+    color: var(--color-white);
 }
 
 .mobile-home-link {

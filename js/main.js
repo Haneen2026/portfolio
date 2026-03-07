@@ -253,35 +253,44 @@
     }; // end ssViewAnimate
 
 
-   /* Swiper
+       /* Swiper
     * ------------------------------------------------------ */ 
     const ssSwiper = function() {
 
-        const mySwiper = new Swiper('.swiper-container', {
+        // Only initialize Swiper on mobile screens
+        if (window.matchMedia('(max-width: 600px)').matches) {
+            const mySwiper = new Swiper('.swiper-container', {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                }
+            });
+        }
 
-            slidesPerView: 2,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                // when window width is > 400px
-                401: {
-                    slidesPerView: 2,
-                    spaceBetween: 20
-                },
-                // when window width is > 600px
-                601: {
-                    slidesPerView: 2,
-                    spaceBetween: 16
-                },
-                // when window width is > 1200px
-                1201: {
-                    slidesPerView: 2,
-                    spaceBetween: 32
+        // Handle resize events
+        window.addEventListener('resize', function() {
+            if (window.matchMedia('(max-width: 600px)').matches) {
+                // Mobile: Initialize Swiper if not already initialized
+                if (!window.testimonialSwiper) {
+                    window.testimonialSwiper = new Swiper('.swiper-container', {
+                        slidesPerView: 1,
+                        spaceBetween: 0,
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        }
+                    });
+                }
+            } else {
+                // Desktop: Destroy Swiper to restore grid layout
+                if (window.testimonialSwiper) {
+                    window.testimonialSwiper.destroy(true, true);
+                    window.testimonialSwiper = null;
                 }
             }
-         });
+        });
 
     }; // end ssSwiper
 
